@@ -9,17 +9,17 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] prefab;
 
     private float spawnRangeX = 0.5f;
-    private float positionY =  -2f;
-    private float SpawnRangeY = -0.5f;
     private float spawnRangeZ = 13f;
     private float spawnRange = 5f;
-    
+    private float y = -1.965f;
+
+    private PlayerInput playerInputScript;
     
     // Start is called before the first frame update
     void Start()
     {
-        
         InvokeRepeating("SpawnObstacle", startDelay, repeatRate);
+        playerInputScript = GameObject.Find("Player").GetComponent < PlayerInput>();
     }
 
     // Update is called once per frame
@@ -36,13 +36,16 @@ public class SpawnManager : MonoBehaviour
     
      void SpawnObstacle()
     {
-        float yPosition = Random.Range(positionY, SpawnRangeY);
         float xPosition = Random.Range(-spawnRangeX, spawnRangeX);
         float zPosition = Random.Range(-spawnRangeZ, spawnRange);
-        Vector3 spawnPosition = new Vector3(xPosition, yPosition, zPosition);
+        Vector3 spawnPosition = new Vector3(xPosition, y , zPosition);
        
         int obstacleNo = Random.Range(0, prefab.Length);
 
-        Instantiate(prefab[obstacleNo], spawnPosition, prefab[obstacleNo].transform.rotation);
+        if (playerInputScript.gameOver == false)
+        {
+           Instantiate(prefab[obstacleNo], spawnPosition, prefab[obstacleNo].transform.rotation);
+        }
+       
     }
 }
