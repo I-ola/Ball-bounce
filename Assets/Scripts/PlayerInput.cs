@@ -12,19 +12,20 @@ public class PlayerInput : MonoBehaviour
 
     //private float jumpForce = 35;
     //private float gravityModifier = 10;
-    private float playerSpeed = 5;
+    private float playerSpeed = 8f;
     private float horizontalInput;
 
-    
+   // private Score scoreScript;
     private float spinSpeed = 100f;
 
+   // private float scoreLimit = 5f;
     private float xRange = 4.4f;
     // Start is called before the first frame update
     void Start()
     {
-        /*  playerRb = GetComponent<Rigidbody>();
-         Physics.gravity *= gravityModifier; */
-
+         playerRb = GetComponent<Rigidbody>();
+        // Physics.gravity *= gravityModifier; 
+       // scoreScript= GameObject.Find("Score").GetComponent<Score>();
 
     }
 
@@ -34,6 +35,10 @@ public class PlayerInput : MonoBehaviour
         PlayerMove();
         PositionReset();
 
+        /*if(scoreScript.score > scoreLimit)
+        {
+            playerSpeed++;
+        }*/
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -53,17 +58,9 @@ public class PlayerInput : MonoBehaviour
         if (gameOver == false)
         {
              horizontalInput = Input.GetAxis("Horizontal");
-             transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * playerSpeed);
+             playerRb.AddForce(Vector3.right* playerSpeed * horizontalInput );
              transform.Rotate(Vector3.right, spinSpeed * Time.deltaTime ); 
 
-         /*   float horizontalInput = Input.GetAxis("Horizontal");
-
-            // Rotate the sphere around its local up-axis (Y-axis)
-            transform.Rotate(Vector3.right , spinSpeed * Time.deltaTime);
-
-            // Move the sphere left or right
-            float horizontalMovement = Input.GetAxis("Horizontal") * playerSpeed * Time.deltaTime;
-            transform.Translate(horizontalMovement, 0f, 0f);*/
         }
 
     }
@@ -81,16 +78,6 @@ public class PlayerInput : MonoBehaviour
 
         }
     }
-    
-    /*  private void PlayerJump()
-   {
-
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
-        {
-            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround = false;
-        }
-    } */
-
+   
     
 }

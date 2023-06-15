@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8579046706268510039}
   - component: {fileID: 8579046706268510036}
   - component: {fileID: 8579046706268510037}
-  - component: {fileID: 8579046706268510041}
   - component: {fileID: 638407167117076692}
   - component: {fileID: 6748297675135700060}
   - component: {fileID: 203857579102865295}
@@ -32,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 8579046706268510034}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.4287, y: -1.965, z: -9.44}
-  m_LocalScale: {x: 7.4661655, y: 0.7741516, z: 0.5875606}
+  m_LocalScale: {x: 4, y: 0.7741516, z: 0.5875606}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -99,19 +98,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8579046706268510041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579046706268510034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6630ff18323bfb84c934559645a63111, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeDestroy: 5
 --- !u!54 &638407167117076692
 Rigidbody:
   m_ObjectHideFlags: 0
