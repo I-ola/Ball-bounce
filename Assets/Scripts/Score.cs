@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
     private PlayerInput playerInputScript;
     public float score = 0f;
     public float increaseScore = 1f;
+   
      void Start()
     {
         playerInputScript = GameObject.Find("Player").GetComponent<PlayerInput>();
@@ -18,7 +19,16 @@ public class Score : MonoBehaviour
         if(playerInputScript.gameOver == false)
         {
             scoreText.text = score.ToString("0");
-            score += increaseScore * Time.deltaTime;
+            score += increaseScore * Time.deltaTime; 
+
         }
+        if(score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            PlayerPrefs.SetInt("HighScore", ((int)score));
+            
+        }
+
+        PlayerPrefs.SetString("Score", scoreText.text);
+       
     }
 }

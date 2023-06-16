@@ -12,7 +12,7 @@ public class PlayerInput : MonoBehaviour
 
     //private float jumpForce = 35;
     //private float gravityModifier = 10;
-    private float playerSpeed = 8f;
+    private float playerSpeed = 70f;
     private float horizontalInput;
 
    // private Score scoreScript;
