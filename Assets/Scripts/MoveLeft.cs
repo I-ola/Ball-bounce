@@ -32,7 +32,7 @@ public class MoveLeft : MonoBehaviour
             
         }
 
-        if(scoreScript.score > scoreLimit)
+        if(scoreScript.score > scoreLimit && speed <= 8.0f)
         {
             speed++;
         }
